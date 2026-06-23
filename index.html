@@ -5,7 +5,7 @@
 <meta http-equiv="cache-control" content="max-age=200"/>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
-<title>Dapaturn</title>
+<title>Workflow</title>
 <link rel="stylesheet" type="text/css" href="animate.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="global.css" media="screen"/>
 
@@ -17,8 +17,8 @@
 <body>
 <div id="wrapper" rel="1">
   <div class="slide_arrow">
-    <div class="left_arrow" ><img src="left_arrow.png" alt="previous icon" width="23" height="23" ></div>
-    <div class="right_arrow" ><img src="right_arrow.png" alt="next icon" width="23" height="23"></div>
+    <div class="left_arrow" ><img src="left_arrow.png" alt="previous icon" width="60" height="60" ></div>
+    <div class="right_arrow" ><img src="right_arrow.png" alt="next icon" width="60" height="60"></div>
   </div>
   <div id="main_content"></div>
   <div class="reference active">
@@ -34,17 +34,47 @@
 <div id="click_through" > </div>
 <script src="global.js" type="text/javascript" language="javascript"></script> 
 <script>
+var startTime = Date.now();
+//step 1:
+var temp = localStorage.getItem(currentContentId+"_"+contentName+"_slideNo_1");
+	
+	if(temp == null){			
+			localStorage.setItem(currentContentId+"_"+contentName+"_slideNo_1" ,startTime);
+			localStorage.setItem(currentContentId+"_"+contentName+"_totalTime_slideNo_1",0);
+			//to capture start time of 1st slide in db format
+			var startTime1InDBFormat = currentTimeInDatabaseFormat();
+			//alert(startTime1InDBFormat);
+			localStorage.setItem(currentContentId+"_"+contentName+"_StartTime_1" ,startTime1InDBFormat);	
+	}
+//step 1 ends here..
 
 $(document).ready(function(){
   // jQuery(".next").bind(event, function(){
   //     document.location = 'VoltarenVAsb/VoltarenVAsb.html';
   //     });
 var selectedContentPath = 'slide1/';
-//  document.getElementById("main_content").innerHTML='<object type="text/html" width="1080px" height="810px" data="'+selectedContentPath+"Dlight1.htm"+'"></object>';
+//  document.getElementById("main_content").innerHTML='<object type="text/html" width="1180px" height="775px" data="'+selectedContentPath+"Dlight1.htm"+'"></object>';
 
+//custom slide additional code begins here....
 
-$("#main_content").html('<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="button1" onclick="playVid1()"></div><div class="video1"><video autoplay onplay="myFunction1()" id="startVideo" width="1080" height="810" source src="slide1/v1.mp4" type="video/mp4"></video></div><div class="video2"><video onended="myFunction2()" id="endVideo" width="1080" height="810" source src="slide1/v2.mp4" type="video/mp4"></video></div><audio id="loseAudio" source src="slide1/a1.mp3" type="audio/mpeg"></audio><audio id="winAudio" source src="slide1/a2.mp3" type="audio/mpeg"></audio><audio id="tickAudio" source src="slide1/a3.mp3" type="audio/mpeg"></audio><div class="q1"><img src="slide1/q1.png"/></div><div class="o1"><img src="slide1/o1.png"/></div><div class="p1"><img src="slide1/p1.png"/></div><div class="o2"><img src="slide1/o2.png"/></div><div class="p2"><img src="slide1/p2.png"/></div><div class="o3"><img src="slide1/o3.png"/></div><div class="p3"><img src="slide1/p3.png"/></div><div class="o4"><img src="slide1/o4.png"/></div><div class="p4"><img src="slide1/p4.png"/></div><div class="op1" onclick="op1()"></div><div class="op2" onclick="op2()"></div><div class="op3" onclick="op3()"></div><div class="op4" onclick="op4()"></div><div id="time" class="time">30</div>');
+if (typeof(localStorage.getItem("currentcustomslideflag"))!='undefined' && localStorage.getItem("currentcustomslideflag") =='true'){
+	var custcomslideid = parseInt(localStorage.getItem("currentcontentcustomslideId")) ;
+	
+switch(custcomslideid){
+	case 1:
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><iframe src="1/html/index.html" class="background1" height="775" width="1180" frameBorder="0" title="Iframe Example"></iframe>';
+	break;
+}
 
+	$("#main_content").html(content);
+	  localStorage.setItem("gotoNextPrevBrand" ,1);//if one than next if 2 than prev
+
+//custom slide additional code ends here....	 
+	 
+}else{
+
+$("#main_content").html('<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><iframe src="1/html/index.html" class="background1" height="775" width="1180" frameBorder="0" title="Iframe Example"></iframe>');
+}
 });
 </script> 
 
