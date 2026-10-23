@@ -2,7 +2,7 @@
 	margin: 0px;
 	padding: 0px;
 }
-
+.s1 img{height:775px !important;}
 body {
 	background-color: #fff;
 	font-family: 'DINOT', 'Helvetica Neue', sans-serif;
@@ -14,8 +14,7 @@ body {
 	background-color: #232E3D;
 	font-family: 'DINOT', 'Helvetica Neue', sans-serif;
 	overflow: hidden;
-}	
-
+}
 .bg {
 	position: absolute;
 	background-position: center top;
@@ -78,12 +77,12 @@ html[xmlns] .clearfix {
 	position: relative;
 	overflow: hidden;
 }
-/* #wrapper .left_arrow, #wrapper .right_arrow {
+#wrapper .left_arrow, #wrapper .right_arrow {
 	opacity: 0;
 }
 #wrapper:hover .left_arrow, #wrapper:hover .right_arrow {
 	opacity: 1;
-} */
+}
 .bottomline {
 	bottom: 40px;
 	left: 120px;
@@ -108,28 +107,34 @@ html[xmlns] .clearfix {
 }
 .slide_arrow {
 	position: relative;
-	top: 260px;
-	opacity: 1;
+	top: 330px;
+	opacity: .8;
 	display: block;
 	z-index: 999;
 	visibility: visible;
-	animation: none;
-	animation-delay: 0.5s;
-	animation-fill-mode: both;
 }
 .left_arrow {
-	float: left;
+	display: flex;
+    justify-content: center;
 	position: absolute;
-	left: 30px;
+	left: 45px;
 	cursor: pointer;
 	z-index: 999;
+	top: 3px;
+	width: 27px;
+	height: 27px;
 	visibility: visible;
 }
 .right_arrow {
-	float: right;
+	display: flex;
+    justify-content: center;
 	position: absolute;
-	right: 30px;
+	right: 45px;
 	cursor: pointer;
+	z-index: 999;
+	top: 3px;
+	width: 27px;
+	height: 27px;
 	visibility: visible;
 }
 .reference {
@@ -137,7 +142,7 @@ html[xmlns] .clearfix {
 	-webkit-transition-timing-function: ease-in;
 	-webkit-transition-property: bottom;
 }
-/* .reference .box {
+.reference .box {
 	position: absolute;
 	width: 1180px;
 	margin: 0 auto;
@@ -172,7 +177,7 @@ html[xmlns] .clearfix {
 	margin: 0 5px;
 	display: inline-block;
 	white-space: nowrap;
-	width: 180px;
+	width: 205px;
 	vertical-align: top;
 	padding: 4px;
 	background-color: rgba(0, 163, 228, 0.4);
@@ -208,8 +213,7 @@ html[xmlns] .clearfix {
 	transition: bottom 1s, -webkit-transform 2s;
 	visibility: visible;
 	z-index: 999;
-} */
-
+}
 .reference.active {
 	bottom: 0%;
 }
@@ -224,7 +228,6 @@ html[xmlns] .clearfix {
 	background-image: url(close.png);
 	bottom: 157px;
 }
-
 #myconsole {
 	display: none;
 	position: fixed;
@@ -236,17 +239,4 @@ html[xmlns] .clearfix {
 	border: 1px solid red;
 	background-color: rgba(0,0,0,0.5);
 	color: #ffffff;
-}
-
-#main_content {
-	position: absolute;
-	margin: 0px;
-	padding: 0px;
-}
-
-.background1 {
-	position: relative;
-	width: 1180px;
-	height: 775px;
-	z-index: 1;
 }
