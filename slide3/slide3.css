@@ -27,7 +27,7 @@
   width: 1180px;
   height: 527px;
 	animation: fadeOut 1s;
-	animation-delay: 3s;
+	animation-delay: 1.8s;
 	animation-fill-mode: both;
 	z-index: 2;
 }
@@ -38,7 +38,7 @@
 	top: 0px;
 	width: 1180px;
 	height: 775px;
-	animation: zoomIn 1.5s;
+	animation: zoomIn 1s;
 	animation-delay: 0s;
 	animation-fill-mode: both;
 	z-index: 5;
@@ -51,7 +51,7 @@
   width: 610px;
   height: 654px;
 	animation: shrinkDown 1s;
-	animation-delay: 2.5s;
+	animation-delay: 1.5s;
 	animation-fill-mode: both;
 	z-index: 5;
 }
@@ -81,7 +81,7 @@
   width: 267px;
   height: 287px;
 	animation: flashLongOff 2s infinite;
-	animation-delay: 3.5s;
+	animation-delay: 2.5s;
 	animation-fill-mode: both;
 	z-index: 10;
 }
@@ -103,7 +103,7 @@
   width: 200px;
   height: 24px;
 	animation: fadeInUp 0.5s;
-	animation-delay: 3.5s;
+	animation-delay: 2.3s;
 	animation-fill-mode: both;
 	z-index: 5;
 }
@@ -115,7 +115,7 @@
   width: 163px;
   height: 147px;
 	animation: stampIn 0.3s;
-	animation-delay: 4.2s;
+	animation-delay: 3.2s;
 	animation-fill-mode: both;
 	z-index: 2;
 }
@@ -139,7 +139,7 @@
   width: 163px;
   height: 147px;
 	animation: flashOut 1s infinite;
-	animation-delay: 4.5s;
+	animation-delay: 3.5s;
 	animation-fill-mode: both;
 	z-index: 5;
 }
@@ -160,10 +160,10 @@
   top: 356px;
   width: 481px;
   height: 40px;
-	animation: fadeInUp 0.5s;
+	animation: none 0.5s;
 	animation-delay: 4.5s;
 	animation-fill-mode: both;
-	z-index: 10;
+	z-index: 1;
 }
 
 .s5 {
@@ -173,7 +173,7 @@
   width: 318px;
   height: 246px;
 	animation: zoomIn 0.5s;
-	animation-delay: 5s;
+	animation-delay: 4s;
 	animation-fill-mode: both;
 	transform-origin: bottom;
 	z-index: 5;
@@ -186,7 +186,7 @@
   width: 255px;
   height: 138px;
 	animation: zoomIn 0.5s;
-	animation-delay: 5.2s;
+	animation-delay: 4.2s;
 	animation-fill-mode: both;
 	transform-origin: bottom;
 	z-index: 5;
@@ -199,7 +199,7 @@
   width: 312px;
   height: 138px;
 	animation: zoomIn 0.5s;
-	animation-delay: 5.4s;
+	animation-delay: 4.4s;
 	animation-fill-mode: both;
 	transform-origin: bottom;
 	z-index: 5;
