@@ -1,6 +1,32 @@
-/* The artwork always uses a 1080 × 810 stage. JS scales it to fit the screen. */
-html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #000; }
-body { font-family: Arial, sans-serif; -webkit-user-select: none; user-select: none; }
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+[class^="s"] img {
+  width: 100%;
+}
+
+.s1Video {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1080px;
+  height: 810px;
+  display: none;
+  z-index: 10;
+}
+
+.blocker {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1080px;
+  height: 810px;
+  display: none;
+  z-index: 10;
+}
+
 #game { position: absolute; width: 1080px; height: 810px; overflow: hidden; background: #000; transform-origin: 0 0; -webkit-transform-origin: 0 0; }
 #background, #drawing { position: absolute; left: 0; top: 0; width: 1080px; height: 810px; }
 #background { pointer-events: none; }

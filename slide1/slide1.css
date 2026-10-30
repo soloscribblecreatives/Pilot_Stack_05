@@ -1,0 +1,27 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+[class^="s"] img {
+  width: 100%;
+}
+
+.s1,
+.s1 video {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1080px;
+  height: 810px;
+  z-index: 10;
+}
+
+.blocker {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1080px;
+  height: 810px;
+  z-index: 10;
+}

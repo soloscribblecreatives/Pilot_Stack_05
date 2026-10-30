@@ -1,11 +1,15 @@
+function runAnimationCard() {
+window.requestAnimationFrame(function () {
+
+$(document).ready(function () {
+
 /* Plain ES5 JavaScript. No packages, build tools, network requests or frameworks. */
-(function () {
     'use strict';
 
     // EDIT THESE SETTINGS. Coordinates below follow the 1024 × 768 reference.
     // The visible canvas itself is exactly 1080 × 810.
     var HIT_RADIUS = 30;       // Finger tolerance around the next numbered dot.
-    var VIDEO_SOURCE = '';    // Example: 'assets/completion.mp4'. Empty = image only.
+    var VIDEO_SOURCE = '';    // Example: 'slide2/completion.mp4'. Empty = image only.
     var VIDEO_AUTOPLAY = false; // Mobile devices may require tapping Play for sound.
     var SCALE = 1080 / 1024;
     var letters = [
@@ -43,19 +47,19 @@
         loaded += 1;
         if (loaded === 5) { ready = true; render(); }
     }
-    function assetFailed() { status.textContent = 'An image could not load. Keep the assets folder beside index.html and reload.'; prompt.textContent = 'Please reload — artwork could not load.'; }
+    function assetFailed() { status.textContent = 'An image could not load. Keep the slide2 folder beside index.html and reload.'; prompt.textContent = 'Please reload — artwork could not load.'; }
     for (i = 0; i < letters.length; i += 1) {
         letters[i].image = new Image();
         letters[i].image.onload = assetLoaded;
         letters[i].image.onerror = assetFailed;
-        letters[i].image.src = 'assets/' + letters[i].file + '.png';
+        letters[i].image.src = 'slide2/' + letters[i].file + '.png';
         letters[i].mask = document.createElement('canvas');
         letters[i].mask.width = 1024; letters[i].mask.height = 768;
         letters[i].visited = [];
     }
     period1.onload = assetLoaded; period2.onload = assetLoaded;
     period1.onerror = assetFailed; period2.onerror = assetFailed;
-    period1.src = 'assets/period-first.png'; period2.src = 'assets/period-second.png';
+    period1.src = 'slide2/period-first.png'; period2.src = 'slide2/period-second.png';
 
     function distance(a, b) { var x = a[0] - b[0], y = a[1] - b[1]; return Math.sqrt(x * x + y * y); }
     function segmentDistance(p, a, b) {
@@ -215,6 +219,8 @@
             letters[n].mask.getContext('2d').clearRect(0, 0, 1024, 768);
             letters[n].visited = [];
         }
+		
+		clearTimeout(s2VideoTimer);
         document.getElementById('s1Image').style.display = 'none';
         document.getElementById('o1Image').style.display = 'none';
         document.getElementById('s2Image').style.display = 'none';
@@ -278,4 +284,42 @@
     }
     window.addEventListener('blur', end, false);
     document.addEventListener('visibilitychange', function () { if (document.hidden) { end(); } }, false);
-}());
+
+
+/* Simple, independent completion functions. Edit each one as needed.
+   Called once per letter per game. Images remain visible until Replay.
+   Native alerts deliberately pause the game until OK is tapped.
+   Remove the alert line later if uninterrupted play is preferred. */
+function onS1Complete() {
+    document.getElementById('s1Image').style.display = 'block';
+    //window.alert('Letter S1 is done.');
+}
+
+function onO1Complete() {
+    document.getElementById('o1Image').style.display = 'block';
+    //window.alert('Letter O1 is done.');
+}
+
+var s2VideoTimer;
+
+function onS2Complete() {
+
+    document.getElementById('s2Image').style.display = 'block';
+
+    clearTimeout(s2VideoTimer);
+
+    s2VideoTimer = setTimeout(function() {
+        $(".s1Video").css("display", "block");
+        document.getElementById("s1Video").play();
+    }, 4000);
+
+    //window.alert('Letter S2 is done.');
+}
+
+});
+
+});
+}
+
+
+
